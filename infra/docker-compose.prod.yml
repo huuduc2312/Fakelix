@@ -1,0 +1,9 @@
+version: "3.7"
+services:
+  php:
+    environment:
+      APP_ENV: prod
+  nginx:
+    build:
+      args:
+        env: prod

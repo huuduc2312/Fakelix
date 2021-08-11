@@ -1,7 +1,9 @@
 FROM nginx:1.18.0-alpine
 
+ARG env=dev
+
 COPY ./infra/nginx/nginx.conf /etc/nginx/nginx.conf
-COPY ./infra/nginx/conf.d/server.conf /etc/nginx/conf.d/
+COPY ./infra/nginx/conf.d/${env}.conf /etc/nginx/conf.d/
 
 ARG UID=1001
 ARG GID=1001
