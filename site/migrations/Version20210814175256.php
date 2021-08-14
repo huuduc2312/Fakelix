@@ -7,7 +7,7 @@ namespace DoctrineMigrations;
 use Doctrine\DBAL\Schema\Schema;
 use Doctrine\Migrations\AbstractMigration;
 
-final class Version20210814160516 extends AbstractMigration
+final class Version20210814175256 extends AbstractMigration
 {
     public function getDescription(): string
     {
@@ -30,7 +30,9 @@ final class Version20210814160516 extends AbstractMigration
         $this->addSql('ALTER TABLE classification__collection ADD CONSTRAINT FK_A406B56AE25D857E FOREIGN KEY (context) REFERENCES classification__context (id)');
         $this->addSql('ALTER TABLE classification__collection ADD CONSTRAINT FK_A406B56AEA9FDD75 FOREIGN KEY (media_id) REFERENCES media__media (id) ON DELETE SET NULL');
         $this->addSql('ALTER TABLE classification__tag ADD CONSTRAINT FK_CA57A1C7E25D857E FOREIGN KEY (context) REFERENCES classification__context (id)');
+        $this->addSql('ALTER TABLE media__media ADD category_id INT DEFAULT NULL');
         $this->addSql('ALTER TABLE media__media ADD CONSTRAINT FK_5C6DD74E12469DE2 FOREIGN KEY (category_id) REFERENCES classification__category (id) ON DELETE SET NULL');
+        $this->addSql('CREATE INDEX IDX_5C6DD74E12469DE2 ON media__media (category_id)');
     }
 
     public function down(Schema $schema): void
@@ -48,5 +50,7 @@ final class Version20210814160516 extends AbstractMigration
         $this->addSql('DROP TABLE classification__collection');
         $this->addSql('DROP TABLE classification__context');
         $this->addSql('DROP TABLE classification__tag');
+        $this->addSql('DROP INDEX IDX_5C6DD74E12469DE2 ON media__media');
+        $this->addSql('ALTER TABLE media__media DROP category_id');
     }
 }
