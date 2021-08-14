@@ -3,6 +3,14 @@ sonata_admin:
     dashboard:
         blocks:
             - { type: sonata.admin.block.admin_list, position: left }
+        groups:
+            app.admin.group.movie:
+                label: Movie
+                icon: fa fa-film
+                items:
+                    - App\Admin\MovieAdmin
+            sonata_media: ~
+            sonata_classification: ~
     options:
         legacy_twig_text_extension: false
 
