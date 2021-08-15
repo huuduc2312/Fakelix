@@ -12,7 +12,7 @@ sonata_media:
 
   cdn:
     server:
-      path: https://awsdemos3.s3-accelerate.amazonaws.com
+      path: 'https://awsdemos3.s3-accelerate.amazonaws.com'
 
   providers:
     image:
@@ -20,12 +20,11 @@ sonata_media:
 
   filesystem:
     s3:
-      bucket:    '%env(S3_BUCKET)%'
-      accessKey: '%env(AWS_ACCESS_KEY)%'
-      secretKey: '%env(AWS_SECRET_KEY)%'
-      region:    '%env(S3_REGION)'
-      version:   '%env(S3_VERSION)%'
-      endpoint:  '%env(S3_ENDPOINT)%'
+      bucket:    '%env(string:S3_BUCKET)%'
+      accessKey: '%env(string:AWS_ACCESS_KEY)%'
+      secretKey: '%env(string:AWS_SECRET_KEY)%'
+      region:    '%env(string:S3_REGION)%'
+      version:   '%env(string:S3_VERSION)%'
 
   adapters:
     default: 'sonata.media.adapter.image.imagick'
