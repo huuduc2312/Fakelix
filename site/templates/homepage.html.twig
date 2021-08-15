@@ -1,4 +1,68 @@
 {% extends 'base.html.twig' %}
 
+{# {% block stylesheets %} #}
+{# {{ parent() }} #}
+{# <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css" /> #}
+{# <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" /> #}
+
+{# <script src="https://unpkg.com/swiper/swiper-bundle.js"></script> #}
+{# <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script> #}
+{# {% endblock %} #}
+
 {% block body %}
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark header-menu">
+      <div class="container-fluid header-menu__wrapper">
+        <a class="navbar-brand" href="#">Fakelix</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">TV Shows</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Movies</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/">New & Popular</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/">My List</a>
+            </li>
+          </ul>
+          <form class="d-flex">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+          </form>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <section class="movie_row">
+      <!-- Slider main container -->
+      <div class="swiper-container">
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
+          <!-- Slides -->
+          {% for movie in movies %}
+            <div class="swiper-slide">
+              <a href="#" class="movie_row__tile">
+                {% media movie.poster, 'reference' with { 'class': 'movie_row__tile__img' } %}
+              </a>
+            </div>
+          {% endfor %}
+        </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </section>
+  </main>
 {% endblock %}
