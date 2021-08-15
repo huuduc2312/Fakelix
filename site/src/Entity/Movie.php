@@ -53,7 +53,7 @@ class Movie
     /**
      * @ORM\OneToOne(targetEntity="App\Entity\SonataMediaMedia", cascade={"persist", "remove"})
      */
-    private Media $poster;
+    private ?Media $poster = null;
 
     public function __construct()
     {
