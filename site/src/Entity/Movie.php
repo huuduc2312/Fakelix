@@ -5,6 +5,7 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Sonata\MediaBundle\Model\Media;
 
 /**
  * @ORM\Entity
@@ -49,9 +50,19 @@ class Movie
      */
     private Collection $categories;
 
+    /**
+     * @ORM\OneToOne(targetEntity="App\Entity\SonataMediaMedia", cascade={"persist", "remove"})
+     */
+    private Media $poster;
+
     public function __construct()
     {
         $this->categories = new ArrayCollection();
+    }
+
+    public function __toString()
+    {
+        return $this->name;
     }
 
     public function getId(): ?int
@@ -115,6 +126,18 @@ class Movie
     public function setCategories($categories): self
     {
         $this->categories = $categories;
+
+        return $this;
+    }
+
+    public function getPoster(): Media
+    {
+        return $this->poster;
+    }
+
+    public function setPoster(Media $poster): self
+    {
+        $this->poster = $poster;
 
         return $this;
     }
