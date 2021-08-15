@@ -23,7 +23,7 @@ sonata_media:
       bucket:    '%env(S3_BUCKET)%'
       accessKey: '%env(AWS_ACCESS_KEY)%'
       secretKey: '%env(AWS_SECRET_KEY)%'
-      region:    'ap-southeast-1'
+      region:    '%env(S3_REGION)'
       version:   '%env(S3_VERSION)%'
       endpoint:  '%env(S3_ENDPOINT)%'
 
