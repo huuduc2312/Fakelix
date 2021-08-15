@@ -130,12 +130,12 @@ class Movie
         return $this;
     }
 
-    public function getPoster(): Media
+    public function getPoster(): ?Media
     {
         return $this->poster;
     }
 
-    public function setPoster(Media $poster): self
+    public function setPoster(?Media $poster): self
     {
         $this->poster = $poster;
 
