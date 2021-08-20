@@ -55,6 +55,11 @@ class Movie
      */
     private ?Media $poster = null;
 
+    /**
+     * @ORM\OneToOne(targetEntity="App\Entity\SonataMediaMedia", cascade={"persist", "remove"})
+     */
+    private ?Media $source = null;
+
     public function __construct()
     {
         $this->categories = new ArrayCollection();
@@ -138,6 +143,18 @@ class Movie
     public function setPoster(?Media $poster): self
     {
         $this->poster = $poster;
+
+        return $this;
+    }
+
+    public function getSource(): ?Media
+    {
+        return $this->source;
+    }
+
+    public function setSource(?Media $source): self
+    {
+        $this->source = $source;
 
         return $this;
     }

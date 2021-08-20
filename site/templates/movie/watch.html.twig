@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block javascripts %}
+  {{ parent() }}
+  <script src="https://cdn.plyr.io/3.6.8/plyr.polyfilled.js"></script>
+{% endblock %}
+
+{% block stylesheets %}
+  {{ parent() }}
+  <link rel="stylesheet" href="https://cdn.plyr.io/3.6.8/plyr.css"/>
+{% endblock %}
+
+{% block body %}
+  <video id="player" playsinline controls data-poster="{% path movie.poster, 'reference' %}">
+    <source src="{% path movie.source, 'reference' %}" type="video/mp4"/>
+  </video>
+  <script>
+      const player = new Plyr('#player')
+  </script>
+{% endblock %}

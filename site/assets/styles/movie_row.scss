@@ -1,4 +1,4 @@
-.movie_row {
+.movie-row {
   margin: 3vw 0;
 
   &__tile {
@@ -11,5 +11,15 @@
       height: 100%;
       border-radius: 4px;
     }
+  }
+
+  h2 a {
+    line-height: 1.25vw;
+    font-size: 1.4vw;
+    color: #e5e5e5;
+    font-weight: 700;
+    font-family: 'Netflix Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    text-decoration: none;
+    margin-left: 100px;
   }
 }

@@ -34,6 +34,10 @@ class MovieAdmin extends AbstractAdmin
             ->add('poster', MediaType::class, [
                 'context' => 'default',
                 'provider' => 'sonata.media.provider.image',
+            ])
+            ->add('source', MediaType::class, [
+                'context' => 'default',
+                'provider' => 'sonata.media.provider.file',
             ]);
     }
 }

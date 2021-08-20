@@ -45,7 +45,10 @@
     </nav>
   </header>
   <main>
-    <section class="movie_row">
+    <section class="movie-row">
+      <h2 class="movie-category">
+        <a href="#">Action</a>
+      </h2>
       <!-- Slider main container -->
       <div class="swiper-container">
         <!-- Additional required wrapper -->
@@ -53,8 +56,52 @@
           <!-- Slides -->
           {% for movie in movies %}
             <div class="swiper-slide">
-              <a href="#" class="movie_row__tile">
-                {% media movie.poster, 'reference' with { 'class': 'movie_row__tile__img' } %}
+              <a href="{{ path('app_movie_watch', { 'id': movie.id }) }}" class="movie-row__tile">
+                {% media movie.poster, 'reference' with { 'class': 'movie-row__tile__img' } %}
+              </a>
+            </div>
+          {% endfor %}
+        </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </section>
+    <section class="movie-row">
+      <h2 class="movie-category">
+        <a href="#">Comedy</a>
+      </h2>
+      <!-- Slider main container -->
+      <div class="swiper-container">
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
+          <!-- Slides -->
+          {% for movie in movies %}
+            <div class="swiper-slide">
+              <a href="{{ path('app_movie_watch', { 'id': movie.id }) }}" class="movie-row__tile">
+                {% media movie.poster, 'reference' with { 'class': 'movie-row__tile__img' } %}
+              </a>
+            </div>
+          {% endfor %}
+        </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </section>
+    <section class="movie-row">
+      <h2 class="movie-category">
+        <a href="#">Trending</a>
+      </h2>
+      <!-- Slider main container -->
+      <div class="swiper-container">
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
+          <!-- Slides -->
+          {% for movie in movies %}
+            <div class="swiper-slide">
+              <a href="{{ path('app_movie_watch', { 'id': movie.id }) }}" class="movie-row__tile">
+                {% media movie.poster, 'reference' with { 'class': 'movie-row__tile__img' } %}
               </a>
             </div>
           {% endfor %}

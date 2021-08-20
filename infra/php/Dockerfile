@@ -22,6 +22,8 @@ ARG GID=1000
 RUN usermod -u $UID www-data && groupmod -g $GID www-data; \
     mkdir /srv/app && chown www-data:www-data /srv/app
 
+COPY ./infra/php/conf.d/symfony.ini $PHP_INI_DIR/conf.d/symfony.ini
+
 WORKDIR /srv/app
 
 EXPOSE 9000
